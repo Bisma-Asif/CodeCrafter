@@ -1,0 +1,38 @@
+[
+  {
+    "date": "January 25",
+    "title": "Annual Day",
+    "description": "Grand cultural celebration",
+    "category": "cultural"
+  },
+  {
+    "date": "February 12-14",
+    "title": "Inter-college Sports Meet",
+    "description": "Annual sports championship",
+    "category": "sports"
+  },
+  {
+    "date": "March 15-17",
+    "title": "TechFest",
+    "description": "Technology and innovation festival",
+    "category": "technical"
+  },
+  {
+    "date": "August 10-11",
+    "title": "Hackathon",
+    "description": "24-hour coding competition",
+    "category": "technical"
+  },
+  {
+    "date": "October 5-6",
+    "title": "Music Nights",
+    "description": "Musical performances festival",
+    "category": "cultural"
+  },
+  {
+    "date": "December 20",
+    "title": "Alumni Meet",
+    "description": "Annual alumni gathering",
+    "category": "cultural"
+  }
+]

@@ -1,0 +1,208 @@
+/* College Info Component Styles */
+.college-info-container {
+  background: white;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Styles */
+.college-intro-section,
+.achievements-section,
+.info-cards-section {
+  margin-bottom: 80px;
+}
+
+.college-intro-section h2,
+.achievements-section h2 {
+  color: #6a1b9a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.college-intro-section h2::after,
+.achievements-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #6a1b9a;
+  border-radius: 2px;
+}
+
+/* Introduction Content */
+.intro-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.intro-text h3 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Stats */
+.intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #6a1b9a;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  background: #6a1b9a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.stat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.stat-content h4 {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.stat-content p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Achievements Grid */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.achievement-card {
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #6a1b9a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-card h3 {
+  color: #6a1b9a;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.achievement-card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Info Cards Section */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.info-card {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  color: #6a1b9a;
+}
+
+.info-card h3 {
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.info-card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .achievements-grid,
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .college-intro-section h2,
+  .achievements-section h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,78 @@
+:root {
+  --bg-start: #3c1053;
+  --bg-end: #ad5389;
+  --primary-contrast: #ffffff;
+  --muted: #f5f3f7;
+  --ring: rgba(173, 83, 137, 0.35);
+}
+
+/* Container */
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Title & Subtitle */
+.gallery-title {
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.gallery-subtitle {
+  color: var(--bg-end);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Gallery Card */
+.gallery-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px var(--ring);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--muted);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px var(--ring);
+}
+
+/* Image */
+.gallery-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--bg-start), transparent);
+  color: var(--primary-contrast);
+  padding: 12px;
+  text-align: left;
+}
+
+.gallery-overlay h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}

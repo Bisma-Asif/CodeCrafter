@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Tech Innovation Summit",
+    "date": "October 20, 2025",
+    "description": "Join industry leaders and innovators for a day of cutting-edge technology discussions and networking.",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=200&fit=crop"
+  },
+  {
+    "title": "Cultural Arts Festival", 
+    "date": "November 5, 2025",
+    "description": "Celebrate diversity through music, dance, and art from cultures around the world.",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=200&fit=crop"
+  },
+  {
+    "title": "Career Fair 2025",
+    "date": "November 15, 2025", 
+    "description": "Meet potential employers and explore exciting career opportunities in various industries.",
+    "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=200&fit=crop"
+  }
+]

@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ad5389;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px 24px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+body {
+  margin-top: 80px;
+}
+
+*::before,
+*::after {
+  z-index: -1 !important;
+}
+
+body::before,
+html::before,
+body::after,
+html::after {
+  display: none !important;
+}
+
+/* Hide any calendar or date elements that might appear behind navbar */
+.react-calendar,
+.calendar-popup,
+[class*="calendar"],
+[class*="date-picker"],
+input[type="date"]::-webkit-calendar-picker-indicator {
+  z-index: -1 !important;
+  display: none !important;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  color: #f1c40f;
+}
+
+.navbar-links a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #f1c40f;
+  font-weight: bold;
+}

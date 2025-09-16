@@ -1,0 +1,178 @@
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.calendar-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #3c1053;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.calendar-nav button {
+  background: #3c1053;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.calendar-nav button:hover {
+  background: #5a1a75;
+}
+
+.month-year {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th {
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #3c1053;
+  border-bottom: 1px solid #eee;
+}
+
+.calendar td {
+  width: 14.2%;
+  height: 45px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: default;
+  position: relative;
+  font-size: 0.9rem;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.calendar td.other-month {
+  color: #ccc;
+}
+
+.calendar td.today {
+  background-color: #f0e6f5;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Event days - highlight like Google Calendar */
+.calendar td.event-day {
+  border-radius: 50%;
+  background: #ad5389;
+  background: linear-gradient(to right, #3c1053, #ad5389);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.calendar td.event-day::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.7);
+  pointer-events: none;
+}
+
+.calendar td.event-day:hover {
+  background: linear-gradient(to right, #501c6b, #c25c9e);
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3c1053;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  min-width: 160px;
+  text-align: left;
+}
+
+.tooltip hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 5px 0;
+}
+
+.calendar td.event-day:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+  .calendar td {
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  
+  .calendar-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

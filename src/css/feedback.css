@@ -1,0 +1,149 @@
+:root {
+  --bg-start: #3c1053;
+  --bg-end: #ad5389;
+  --primary-contrast: #ffffff;
+  --muted: #f5f3f7;
+  --ring: rgba(173, 83, 137, 0.35);
+}
+
+.feedback-container {
+  margin-top: 120px; /* Added margin to push content below navbar */
+  width: 100%;
+  max-width: 800px;
+  margin: 120px auto 40px auto; /* Center the form and add bottom margin */
+  padding: 0 20px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--ring);
+}
+
+.feedback-header {
+  background: linear-gradient(to right, var(--bg-start), var(--bg-end));
+  padding: 25px 30px;
+  text-align: center;
+  border-bottom: 2px solid var(--bg-start);
+}
+
+.feedback-header h1 {
+  font-size: 2.2rem;
+  color: var(--primary-contrast);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.feedback-header p {
+  color: var(--muted);
+  margin: 8px 0 0 0;
+}
+
+.form-container {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--bg-start);
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  background-color: var(--muted);
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.rating-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rating-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+  min-width: 80px;
+}
+
+.rating-option input {
+  display: none;
+}
+
+.rating-star {
+  font-size: 2.2rem;
+  color: #ddd;
+  transition: all 0.3s ease;
+}
+
+.rating-option:hover .rating-star,
+.rating-option input:checked + .rating-star {
+  color: var(--bg-end);
+}
+
+.rating-label {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.rating-option input:checked ~ .rating-label {
+  color: var(--bg-end);
+  font-weight: 600;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  color: var(--primary-contrast);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--bg-end) 0%, var(--bg-start) 100%);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Error styling */
+.error-input {
+  border-color: #e74c3c !important;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+}

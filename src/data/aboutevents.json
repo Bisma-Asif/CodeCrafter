@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "InnovateX Hackathon",
+    "date": "2023-09-15",
+    "time": "10:00 AM - 6:00 PM",
+    "venue": "Tech Innovation Center",
+    "category": "Technical",
+    "description": "24-hour coding competition where participants solve real-world problems using innovative technology solutions."
+  },
+  {
+    "id": 2,
+    "name": "Annual Cultural Fest",
+    "date": "2023-10-05",
+    "time": "9:00 AM - 9:00 PM",
+    "venue": "Main Auditorium",
+    "category": "Cultural",
+    "description": "A day-long celebration of diverse cultures with performances, food stalls, and artistic displays."
+  },
+  {
+    "id": 3,
+    "name": "Inter-College Cricket Tournament",
+    "date": "2023-09-22",
+    "time": "8:00 AM - 5:00 PM",
+    "venue": "College Cricket Ground",
+    "category": "Sports",
+    "description": "Annual cricket competition featuring teams from colleges across the region."
+  },
+  {
+    "id": 4,
+    "name": "Research Paper Presentation",
+    "date": "2023-10-12",
+    "time": "9:30 AM - 4:00 PM",
+    "venue": "Seminar Hall",
+    "category": "Academic",
+    "description": "An opportunity for students to present their research findings to faculty and peers."
+  },
+  {
+    "id": 5,
+    "name": "Robotics Workshop",
+    "date": "2023-09-18",
+    "time": "2:00 PM - 5:00 PM",
+    "venue": "Robotics Lab",
+    "category": "Technical",
+    "description": "Hands-on workshop on building and programming robots for beginners."
+  },
+  {
+    "id": 6,
+    "name": "Dance Competition",
+    "date": "2023-10-08",
+    "time": "3:00 PM - 7:00 PM",
+    "venue": "Cultural Hall",
+    "category": "Cultural",
+    "description": "Showcase your dancing skills in various categories including classical, contemporary, and hip-hop."
+  },
+  {
+    "id": 7,
+    "name": "Blood Donation Camp",
+    "date": "2023-09-30",
+    "time": "10:00 AM - 4:00 PM",
+    "venue": "Health Center",
+    "category": "Sports",
+    "description": "Join us in this noble cause to help save lives by donating blood."
+  },
+  {
+    "id": 8,
+    "name": "Career Guidance Seminar",
+    "date": "2023-10-20",
+    "time": "11:00 AM - 1:00 PM",
+    "venue": "Conference Room",
+    "category": "Academic",
+    "description": "Industry experts share insights on career opportunities and preparation strategies."
+  }
+]

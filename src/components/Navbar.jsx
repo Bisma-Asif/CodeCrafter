@@ -1,94 +1,83 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";  // Import Link and useLocation
+
 import "../css/Navbar.css";
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("");
+  const location = useLocation();  // useLocation gives you the current location (pathname)
+  const [activeLink, setActiveLink] = useState(location.pathname);  // Set initial active link based on current path
 
   useEffect(() => {
-    // Get current pathname
-    const currentPath = window.location.pathname;
-    setActiveLink(currentPath);
-  }, []);
-
-  const handleLinkClick = (path) => {
-    setActiveLink(path);
-  };
+    setActiveLink(location.pathname);  // Update active link whenever the path changes
+  }, [location]);
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">CampusConnect</div>
       <ul className="navbar-links">
         <li>
-          <a 
-            href="/" 
-            className={activeLink === "/" ? "active" : ""} 
-            onClick={() => handleLinkClick("/")}
+          <Link
+            to="/" 
+            className={activeLink === "/" ? "active" : ""}
           >
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/about" 
-            className={activeLink === "/about" ? "active" : ""} 
-            onClick={() => handleLinkClick("/about")}
+          <Link
+            to="/about"
+            className={activeLink === "/about" ? "active" : ""}
           >
             About Us
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/eventcalendar" 
-            className={activeLink === "/eventcalendar" ? "active" : ""} 
-            onClick={() => handleLinkClick("/eventcalendar")}
+          <Link
+            to="/eventcalendar"
+            className={activeLink === "/eventcalendar" ? "active" : ""}
           >
             Events Calendar
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/eventdetails" 
-            className={activeLink === "/eventdetails" ? "active" : ""} 
-            onClick={() => handleLinkClick("/eventdetails")}
+          <Link
+            to="/eventdetails"
+            className={activeLink === "/eventdetails" ? "active" : ""}
           >
             Event Details
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/registration" 
-            className={activeLink === "/registration" ? "active" : ""} 
-            onClick={() => handleLinkClick("/registration")}
+          <Link
+            to="/registration"
+            className={activeLink === "/registration" ? "active" : ""}
           >
             Registration
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/gallery" 
-            className={activeLink === "/gallery" ? "active" : ""} 
-            onClick={() => handleLinkClick("/gallery")}
+          <Link
+            to="/gallery"
+            className={activeLink === "/gallery" ? "active" : ""}
           >
             Gallery
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/contact" 
-            className={activeLink === "/contact" ? "active" : ""} 
-            onClick={() => handleLinkClick("/contact")}
+          <Link
+            to="/contact"
+            className={activeLink === "/contact" ? "active" : ""}
           >
             Contact Us
-          </a>
+          </Link>
         </li>
         <li>
-          <a 
-            href="/feedback" 
-            className={activeLink === "/feedback" ? "active" : ""} 
-            onClick={() => handleLinkClick("/feedback")}
+          <Link
+            to="/feedback"
+            className={activeLink === "/feedback" ? "active" : ""}
           >
             Feedback
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

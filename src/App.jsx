@@ -1,84 +1,48 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import UserSelector from "./components/UserSelector";
-
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import EventCalendar from "./Pages/EventCalendar";
-import EventDetails from "./Pages/EventDetails";
-import Registration from "./Pages/Registration";
-import Gallery from "./Pages/Gallery";
-import ContactUs from "./Pages/ContactUs";
-import Feedback from "./Pages/Feedback";
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import NextStepNavigator from './components/Navigator/NextStepNavigator';  // This is your new step navigator
+import Home from './pages/Home';
+import About from './pages/About';
+import EventCalendar from './pages/EventCalendar';  // Update your page components to match the second structure
+import EventDetails from './pages/EventDetails';
+import Registration from './pages/Registration';
+import Gallery from './pages/Gallery';
+import ContactUs from './pages/ContactUs';
+import Feedback from './pages/Feedback';
+import './App.css';  // Ensure the CSS file path is correct
 
 function App() {
-  const [userCompleted, setUserCompleted] = useState(false);
-  const [data, setData] = useState({ userType: "", name: "" });
-  const [isLoading, setIsLoading] = useState(true);
+  const [showNavigator, setShowNavigator] = useState(true);
 
-  // ✅ Check localStorage on load
-  useEffect(() => {
-    const userName = localStorage.getItem("userName");
-    const userType = localStorage.getItem("userType");
-
-    if (userName && userType) {
-      setData({ userType, name: userName });
-      setUserCompleted(true);
-    }
-    setIsLoading(false);
-  }, []);
-
-  const handleUserComplete = () => {
-    const userName = localStorage.getItem("userName");
-    const userType = localStorage.getItem("userType");
-    setData({ userType, name: userName });
-    setUserCompleted(true);
+  const handleNavigatorComplete = () => {
+    setShowNavigator(false);  // Hide the navigator after completion
   };
 
-  // ✅ Loading screen
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          fontSize: "18px",
-        }}
-      >
-        Loading...
-      </div>
-    );
+  // Show the NextStepNavigator until it's completed
+  if (showNavigator) {
+    return <NextStepNavigator onComplete={handleNavigatorComplete} />;
   }
 
+  // After completing the navigator, show the main app
   return (
-    <BrowserRouter>
-      {/* ✅ Show UserSelector if not completed */}
-      {!userCompleted && <UserSelector onComplete={handleUserComplete} />}
-
-      {userCompleted && (
-        <>
-          <Navbar />
-          <div className="p-4">
-            <Routes>
-              <Route path="/" element={<Home data={data} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/eventcalendar" element={<EventCalendar />} />
-              <Route path="/eventdetails" element={<EventDetails />} />
-              <Route path="/registration" element={<Registration />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/feedback" element={<Feedback />} />
-            </Routes>
-          </div>
-          <Footer />
-        </>
-      )}
-    </BrowserRouter>
+    <div className="App">
+      <Navbar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/eventcalendar" element={<EventCalendar />} />
+          <Route path="/eventdetails" element={<EventDetails />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/feedback" element={<Feedback />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

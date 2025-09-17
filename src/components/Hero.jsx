@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import heroData from "../data/hero.json";
+import heroData from "../data/Hero.json";
 import "../css/Header.css";
 
 export default function Hero({ data }) {

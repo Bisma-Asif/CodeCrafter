@@ -1,35 +1,53 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'; 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import NextStepNavigator from './components/Navigator/NextStepNavigator';  // This is your new step navigator
-import Home from './pages/Home';
-import About from './pages/About';
-import EventCalendar from './pages/EventCalendar';  // Update your page components to match the second structure
-import EventDetails from './pages/EventDetails';
-import Registration from './pages/Registration';
-import Gallery from './pages/Gallery';
-import ContactUs from './pages/ContactUs';
-import Feedback from './pages/Feedback';
-import './App.css';  // Ensure the CSS file path is correct
+import Home from './Pages/Home';
+import About from './Pages/About';
+import EventCalendar from './Pages/EventCalendar';
+import EventDetails from './Pages/EventDetails';
+import Registration from './Pages/Registration';
+import Gallery from './Pages/Gallery';
+import ContactUs from './Pages/ContactUs';
+import Feedback from './Pages/Feedback';
+import './App.css';  // Make sure CSS is still included
 
 function App() {
-  const [showNavigator, setShowNavigator] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleNavigatorComplete = () => {
-    setShowNavigator(false);  // Hide the navigator after completion
-  };
+  // ✅ Check localStorage on load
+  useEffect(() => {
+    const userName = localStorage.getItem("userName");
+    const userType = localStorage.getItem("userType");
+    
+    if (userName && userType) {
+      setIsLoading(false);  // Just stop loading if user data exists
+    } else {
+      setIsLoading(false);  // You can decide what to do here (maybe show a login page)
+    }
+  }, []);
 
-  // Show the NextStepNavigator until it's completed
-  if (showNavigator) {
-    return <NextStepNavigator onComplete={handleNavigatorComplete} />;
+  // ✅ Loading screen
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          fontSize: '18px',
+        }}
+      >
+        Loading...
+      </div>
+    );
   }
 
-  // After completing the navigator, show the main app
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
-      <main className="main-content">
+      <div className="main-content p-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -40,9 +58,9 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

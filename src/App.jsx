@@ -1,5 +1,6 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import UserSelector from "./components/UserSelector";
@@ -13,26 +14,21 @@ import Gallery from "./Pages/Gallery";
 import ContactUs from "./Pages/ContactUs";
 import Feedback from "./Pages/Feedback";
 
-function AppContent() {
+function App() {
   const [userCompleted, setUserCompleted] = useState(false);
   const [data, setData] = useState({ userType: "", name: "" });
   const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation();
 
+  // ✅ Check localStorage on load
   useEffect(() => {
-    // Check localStorage when app loads
-    const checkUserData = () => {
-      const userName = localStorage.getItem("userName");
-      const userType = localStorage.getItem("userType");
-      
-      if (userName && userType) {
-        setData({ userType, name: userName });
-        setUserCompleted(true);
-      }
-      setIsLoading(false);
-    };
-    
-    checkUserData();
+    const userName = localStorage.getItem("userName");
+    const userType = localStorage.getItem("userType");
+
+    if (userName && userType) {
+      setData({ userType, name: userName });
+      setUserCompleted(true);
+    }
+    setIsLoading(false);
   }, []);
 
   const handleUserComplete = () => {
@@ -42,51 +38,48 @@ function AppContent() {
     setUserCompleted(true);
   };
 
-  // Show loading while checking localStorage
+  // ✅ Loading screen
   if (isLoading) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh',
-        fontSize: '18px'
-      }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          fontSize: "18px",
+        }}
+      >
         Loading...
       </div>
     );
   }
 
-  // Show UserSelector only if user hasn't completed (regardless of route)
-  if (!userCompleted) {
-    return <UserSelector onComplete={handleUserComplete} />;
-  }
-
-  // Main app content
   return (
-    <>
-      <Navbar />
-      <div className="p-4">
-        <Routes>
-          <Route path="/" element={<Home data={data} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/eventcalendar" element={<EventCalendar />} />
-          <Route path="/eventdetails" element={<EventDetails />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/feedback" element={<Feedback />} />
-        </Routes>
-      </div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      {/* ✅ Show UserSelector if not completed */}
+      {!userCompleted && <UserSelector onComplete={handleUserComplete} />}
+
+      {userCompleted && (
+        <>
+          <Navbar />
+          <div className="p-4">
+            <Routes>
+              <Route path="/" element={<Home data={data} />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/eventcalendar" element={<EventCalendar />} />
+              <Route path="/eventdetails" element={<EventDetails />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/feedback" element={<Feedback />} />
+            </Routes>
+          </div>
+          <Footer />
+        </>
+      )}
+    </BrowserRouter>
   );
 }
 
-export default function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
-}
+export default App;

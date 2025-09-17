@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/Gallery.css";
-import galleryData from "../data/gallery.json";
+import galleryData from "../data/Gallery.json";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);

@@ -5,14 +5,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserSelector from './components/UserSelector';
 
-import Home from './Pages/Home';
-import About from './Pages/About';
-import EventCalendar from './Pages/EventCalendar';
-import EventDetails from './Pages/EventDetails';
-import Registration from './Pages/Registration';
-import Gallery from './Pages/Gallery';
-import ContactUs from './Pages/ContactUs';
-import Feedback from './Pages/Feedback';
+import Home from '/Pages/Home';
+import About from '/Pages/About';
+import EventCalendar from '/Pages/EventCalendar';
+import EventDetails from '/Pages/EventDetails';
+import Registration from '/Pages/Registration';
+import Gallery from '/Pages/Gallery';
+import ContactUs from '/Pages/ContactUs';
+import Feedback from '/Pages/Feedback';
 
 import './App.css';
 

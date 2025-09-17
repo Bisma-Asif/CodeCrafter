@@ -234,7 +234,6 @@ const eventsStyles = {
     border: 'none',
     cursor: 'pointer',
     minHeight: '44px',
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: 'auto',

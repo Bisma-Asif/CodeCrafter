@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import UserSelector from './components/UserSelector';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import UserSelector from "./components/UserSelector";
 
-import Home from '/Pages/Home';
-import About from '/Pages/About';
-import EventCalendar from '/Pages/EventCalendar';
-import EventDetails from '/Pages/EventDetails';
-import Registration from '/Pages/Registration';
-import Gallery from '/Pages/Gallery';
-import ContactUs from '/Pages/ContactUs';
-import Feedback from '/Pages/Feedback';
-
-import './App.css';
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import EventCalendar from "./Pages/EventCalendar";
+import EventDetails from "./Pages/EventDetails";
+import Registration from "./Pages/Registration";
+import Gallery from "./Pages/Gallery";
+import ContactUs from "./Pages/ContactUs";
+import Feedback from "./Pages/Feedback";
 
 function App() {
   const [userCompleted, setUserCompleted] = useState(false);
-  const [data, setData] = useState({ userType: '', name: '' });
+  const [data, setData] = useState({ userType: "", name: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const userName = localStorage.getItem('userName');
-    const userType = localStorage.getItem('userType');
+    const userName = localStorage.getItem("userName");
+    const userType = localStorage.getItem("userType");
 
     if (userName && userType) {
       setData({ userType, name: userName });
@@ -33,8 +31,8 @@ function App() {
   }, []);
 
   const handleUserComplete = () => {
-    const userName = localStorage.getItem('userName');
-    const userType = localStorage.getItem('userType');
+    const userName = localStorage.getItem("userName");
+    const userType = localStorage.getItem("userType");
     setData({ userType, name: userName });
     setUserCompleted(true);
   };
@@ -43,11 +41,11 @@ function App() {
     return (
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          fontSize: '18px',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          fontSize: "18px",
         }}
       >
         Loading...
@@ -56,7 +54,7 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       {!userCompleted && <UserSelector onComplete={handleUserComplete} />}
 
       {userCompleted && (
@@ -77,7 +75,7 @@ function App() {
           <Footer />
         </>
       )}
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

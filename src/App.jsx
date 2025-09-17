@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'; 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import UserSelector from './components/UserSelector';  // Import UserSelector
+import UserSelector from './components/UserSelector';
+
 import Home from './Pages/Home';
 import About from './Pages/About';
 import EventCalendar from './Pages/EventCalendar';
@@ -11,6 +13,7 @@ import Registration from './Pages/Registration';
 import Gallery from './Pages/Gallery';
 import ContactUs from './Pages/ContactUs';
 import Feedback from './Pages/Feedback';
+
 import './App.css';
 
 function App() {
@@ -18,7 +21,6 @@ function App() {
   const [data, setData] = useState({ userType: '', name: '' });
   const [isLoading, setIsLoading] = useState(true);
 
-  // ✅ Check localStorage on load
   useEffect(() => {
     const userName = localStorage.getItem('userName');
     const userType = localStorage.getItem('userType');
@@ -37,7 +39,6 @@ function App() {
     setUserCompleted(true);
   };
 
-  // ✅ Loading screen
   if (isLoading) {
     return (
       <div
@@ -55,14 +56,13 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      {/* Show UserSelector if not completed */}
+    <HashRouter>
       {!userCompleted && <UserSelector onComplete={handleUserComplete} />}
-      
+
       {userCompleted && (
         <>
           <Navbar />
-          <div className="main-content p-4">
+          <main className="main-content p-4">
             <Routes>
               <Route path="/" element={<Home data={data} />} />
               <Route path="/about" element={<About />} />
@@ -73,11 +73,11 @@ function App() {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/feedback" element={<Feedback />} />
             </Routes>
-          </div>
+          </main>
           <Footer />
         </>
       )}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
